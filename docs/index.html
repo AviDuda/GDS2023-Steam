@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/league.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<i class="fab fa-steam fa-4x" ></i>
+
+# Steam Up Your Game
+### How to Leverage Steam Features and Tools for Your Game
+
+Avi Duda, GameDiscoverCo
+
+There are a few extra notes, press S to open the speaker view to read them. <!-- .element: style="font-size: 0.6em" class="fragment" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Who are you?
+
+Just a raccoon 🦝
+
+###  My experience
+
+- Now: GameDiscoverCo
+- Past: Evolve PR (Terminals.io), SCS Software, Subsoap
+
+<img src="images/best_resource.png" alt="" style="width: 500px; object-fit: fill" class="fragment">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Other things I do/did
+
+- Czech & Slovak Games Week
+- SteamDB
+- Enhanced Steam (now Augmented Steam)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## What is this talk about?
+
+1. Learn about various Steam features
+2. Use Steam for your advantage
+3. Recognize similar opportunities on other platforms
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Steam features
+
+Steam offers _a lot_ of features. Learn about them!
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### What to do in pre-release
+
+- Launch a coming soon store page when you have something to show
+- Wishlists are important for measuring possible success
+- Followers are important for direct communication
+- Join Steam Next Fest with a demo ~3 months before launch
+- Wishlist count often tops out shortly after launch, between 2x and 4x of pre-launch Steam wishlists
+- Launching a game 5-7 days before a seasonal sale may be worth it (16 new release spots)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Store page tips
+
+- Your best marketing tool (that's where buyers are!)
+- Always keep the store page up to date
+- Be specific in the description (usually)
+- Be creative!
+- Call to action in the description
+- Use short and wide eye-catching gifs
+- Keep the above the fold text easy to read
+- Use the below the fold text for extra details about your game
+- Capsules (banners) should be catchy and readable
+</div>
+
+<aside class="notes"><ul>
+<li>Silly games should have a silly description, dark games a darker one, etc.</li>
+<li>&quot;Above the fold&quot; text means anything above &quot;Read more&quot; which gets shown when you go over the certain limit in the full description.</li>
+<li>Call to action means a simple &quot;feature&quot; list with sentences like &quot;Explore the vast world&quot;, &quot;Roam through the Rocky Mountains&quot; etc.</li>
+<li>Example store page I wrote is <a href="https://store.steampowered.com/app/1209471/American_Truck_Simulator__Colorado/">here</a></li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Store page tips
+
+- Have a good trailer! See [Derek Lieu's tips](https://www.derek-lieu.com/start-here)
+- Show gameplay in your trailer, quickly (think: TikTok!)
+- Tag your game with [Tag Wizard](https://partner.steamgames.com/doc/store/tags#2)
+- Use Steam bundles if you have OST or other DLCs
+- Set temporary capsules (banners) for special events
+- Translate and localize your store pages
+- DLCs get a special page where you can categorize them
+</div>
+
+<aside class="notes"><p>Localizing means e.g. for Bulanci, I bet more on nostalgia from Czech players at the start of the <a href="https://web.archive.org/web/20221113101501/https://store.steampowered.com/app/1732920/Bulanci/?l=czech">description</a>. The <a href="https://web.archive.org/web/20230328085522/https://store.steampowered.com/app/1732920/Bulanci/">English version</a> of the text didn&#39;t have it.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Developer page
+
+- Central hub to showcase all of your games
+- For devs, publishers and game franchises
+- Visibility throughout the store + emails when following
+- Possibility to create dev/pub-wide sales
+- Example: [PlayWay](https://store.steampowered.com/publisher/playway)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Discounting
+
+- Discount as often as possible (10-12x per year) to maximize revenue
+- Launch discount (10%) is a good incentive
+	- You could instead have a special launch bundle!
+- Start your first sale after ~3 months
+- Gradually increase discount %
+- Beware: There are discount cooldowns! (except for seasonal sales)
+- Discounting repeatedly adds wishlists, but also purchases and wishlist deletes
+</div>
+
+<aside class="notes"><ul>
+<li>Sorry, Factorio and Beat Saber!</li>
+<li>Launch discount within 7 days of a Steam-wide seasonal sale events (like the Summer Sale) - Valve can extend the launch discount to last through the sale event</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Discounting
+
+- Always join the main seasonal sales
+- Join other Steam events (themed sales) and third-party events (LudoNarraCon etc.)
+- Join the Czech & Slovak Games Week ;)
+- Wishlist numbers get significantly bumped when featured
+- Ask yourselves: Are you or your publisher in charge of discounting? Are your discounts set up well? Are you maximizing revenue?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Sale pages
+
+- Self-made sale pages
+- Dev/pub wide or for events
+- Game streams are catchy!
+</div>
+
+<aside class="notes"><ul>
+<li>The sale page editor needs to be enabled by Valve</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Steam bundles
+
+- Multiple games, or mix & match with DLCs
+- Also: Cooperative bundles with other devs
+- Can be created and discounted any time (sale cooldown hack!)
+- Bundle cheaper than base game = game shows up as discounted
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Other store/community features
+
+- Trading cards with profile badges and chat emoticons
+- [Points Shop](https://store.steampowered.com/points/shop) items
+- [Steam Playtests](https://partner.steamgames.com/doc/store/testing)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## In-game features
+
+- Achievements - people expect them
+- Steam Cloud saves - ever played a game without it and lost saves?
+- Leaderboards
+- Workshop - cross-platform alternative: https://mod.io/
+- Inventory + market
+- Steam Deck support is important!
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Use Steam for your advantage
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Internal tools
+
+RTFM!  
+https://partner.steamgames.com/doc/
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Steam announcements
+
+- Tell your players about what's happening
+- Patch notes, dev diaries, irl and online events, discounts
+- Free visibility throughout store, library and community
+- Events can start and end at a specific time
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Steam discussions
+
+- Talk with people interested in your game
+- Discord is cool but this has a lower barrier of entry
+	- Expect some bad comments too!
+- Hire a community manager/social media person
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Reviews
+
+- Goal: Try to get over 500 very positive reviews
+- But at least 10 reviews for tiny indie games
+- Higher review % = higher chance of buying
+- Don't be scared to reply to constructive feedback
+- Reply also to positive reviews!
+</div>
+
+<aside class="notes"><ul>
+<li>Steam starts showing review rating after the first 10 reviews</li>
+<li>Games popular in China often have issues with negative reviews, as Steam Community is blocked there, so reviews are their only way of communication</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Early Access: Yes or no?
+
+- Worth trying for games which aren't linear singleplayer
+- Remember: You get only one launch
+
+<img src="images/launch_vs_ea.png" alt="" style="width: 700px; object-fit: fill">
+</div>
+
+<aside class="notes"><p>More about this <a href="https://newsletter.gamediscover.co/p/will-your-steam-10-launch-outpace">here</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Steamworks Partner utilities
+
+https://partner.steamgames.com/
+
+- Views & Impressions
+	- See where people come from to your store page
+- UTM tracking
+	- Add tracking parameters to your Steam links
+	- Not a full view, disabled when rejecting cookies
+- Occasionally query Steam keys from shady shops (fuck G2A)
+</div>
+
+<aside class="notes"><p>You can track where keys are coming from if you tag them correctly, which helps with the shady shop problem. You may find out that e.g. your reselling partner does weird things with keys!</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Steamworks Financials
+
+https://partner.steampowered.com/
+
+- Ugly site with nice financial data
+- Hidden Steam Deck player stats site
+	- https://partner.steampowered.com/deckplayers.php
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## External tools
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### SteamDB
+
+https://steamdb.info/
+
+- Get basic info about any game
+	- Game pricing
+	- [Sale history](https://steamdb.info/sales/history/)
+	- [Player charts](https://steamdb.info/charts/)
+	- Build history
+- [Technologies](https://steamdb.info/tech/) used in games
+- Steam account value [calculator](https://steamdb.info/calculator/)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### GameDiscoverCo Plus
+
+https://plus.gamediscover.co/  
+**Disclaimer:** I work on this!
+
+- Track and compare upcoming and released games
+- Upcoming games get their Hype score based on followers, forum activity etc.
+- Predict revenue of any game (thx Fellow Traveller)
+- See copies sold and revenue (thx Gamalytic)
+- Publisher/developer list, tag explorer, release heatmap
+- Paid tier of the [GameDiscoverCo newsletter](https://newsletter.gamediscover.co/)
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### VGInsights
+
+https://vginsights.com/
+
+- Similar to GameDiscoverCo Plus
+- Market insights and analysis
+- Top charts, game performance, genre analytics, pub/dev list
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Steam Scout
+
+https://www.togeproductions.com/SteamScout/
+
+Stats about Steam reviews
+
+- Language breakdown
+- Reviews by hours played
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Other websites
+
+- [GamingAnalytics.info](https://gaminganalytics.info/)
+- [SteamData.ninja](https://www.steamdata.ninja/) - AI review summary
+- [ProtonDB](https://www.protondb.com/) - Linux/Steam Deck support
+- [PlayTracker](https://playtracker.net/) - achievements from various platforms in one place
+- [SteamGridDB](https://www.steamgriddb.com/) - user-made Steam capsules
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Useful browser extensions
+
+- [SteamDB](https://steamdb.info/extension/) extension
+- [Augmented Steam](https://augmentedsteam.com/) extension
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Other notes
+
+- Wishlists before launch are approx. 12x Steam followers
+- Actively try to talk with Valve
+- Similar features apply to other stores and platforms
+</div>
+
+<aside class="notes"><p>Like any business relationship, it&#39;s important to keep in touch so they don&#39;t forget about you. No need to do it every day/week, but communicating every few months is key.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Thank you!
+
+Slides are available here:
+
+https://aviduda.github.io/GDS2023-Steam/
+
+<img src="images/qr_talk.png" alt="" style="width: 300px; object-fit: fill">
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
